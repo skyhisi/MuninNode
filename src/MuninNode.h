@@ -75,6 +75,27 @@ class MuninNode
       stream.print(value);
       stream.print('\n');
     }
+
+    /** Helper function to output a name and value item to the stream. */
+    template <class T>
+    static void printValueIf(
+        Stream& stream,
+        const __FlashStringHelper* name,
+        T value,
+        std::function<bool(T)> condition)
+    {
+      stream.print(name);
+      if (condition(value))
+      {
+        stream.print(' ');
+        stream.print(value);
+        stream.print('\n');
+      }
+      else
+      {
+        stream.print(" U\n");
+      }
+    }
     
   private:
     /** Print a line with just a full stop (used to terminate lists). */
