@@ -82,7 +82,7 @@ class MuninNode
         Stream& stream,
         const __FlashStringHelper* name,
         T value,
-        std::function<bool(T)> condition)
+        const std::function<bool(T)>& condition)
     {
       stream.print(name);
       if (condition(value))
